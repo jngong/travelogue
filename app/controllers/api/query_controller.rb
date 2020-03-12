@@ -1,4 +1,4 @@
-class QueryController < ApplicationController
+class Api::QueryController < ApplicationController
 
     def places
         @places = Place.where(country_iso2: params[:country] )
