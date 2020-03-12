@@ -1,0 +1,116 @@
+/* *************************************** */
+/* ****** Place / Entry List Styles ******/
+/* ************************************** */
+
+.home-intro {
+    text-align: center;
+    margin: 8rem auto 3rem;
+}
+
+.filter-container {
+    text-align: center;
+    width: 60vw;
+    margin: 2rem auto;
+}
+
+.select-list {
+    border-color: var(--grey);
+    background-color: var(--background-color);  
+}
+
+.home-intro p {
+    margin: .5rem
+}
+
+.places-container, .entries-container {
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.places-container h2 {
+    margin: 2rem 0
+}
+
+.subhead {
+    font-family: var(--display-font-family);
+    font-weight: 600;
+    margin: 2rem 0 .5rem;
+}
+
+.link-button {
+    background-color: var(--background-color);
+    color: var(--black);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    font-weight: 600;
+    border-color: var(--grey)
+}
+
+.button-icon {
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.place-list, .entry-list {
+    margin: 3rem auto;
+    max-width: 90vw;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, minmax(275px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(275px, 1fr));
+    grid-gap: 2rem;
+}
+
+.no-results p {
+    text-align: center;
+}
+
+.place-card {
+    margin: 0 auto;
+    width: 20vw;
+    height: 20vw;
+    min-width: 275px;
+    min-height: 275px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.card-info {
+    background-color: black;
+    opacity: .9;
+    padding: .5rem .3rem .3rem .5rem;
+    color: var(--white);
+    font-size: .7rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: .8px;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 768px) {
+    .home-intro {
+        width: 90vw;
+    }
+}
+
+/* Media Query for Phones */
+@media only screen and (max-width: 600px) {
+    .filter-container {
+        width: 100%;
+    }
+    .select-list {
+        width: 80%;
+    }
+}

@@ -1,0 +1,81 @@
+/* ***************************************** */
+/* ****** Place / Entry Details Styles ******/
+/* **************************************** */
+
+.place-details-container, .entry-details-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.details-header {
+    text-align: center;
+    width: 100%;
+}
+
+.details-header h3 {
+    margin: .5rem 0;
+}
+
+.entry-rating-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: .5rem auto;
+}
+
+.details-image-container {
+    width: 48%;   
+}
+
+.details-image {
+    margin: 1rem auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+.details-description {
+    width: 48%;
+}
+
+.details-description h4 {
+    text-align: left;
+    margin-bottom: 0;
+    color: var(--main-color)
+}
+
+.details-description p {
+    text-align: left;
+    margin: .2rem 0 2rem;
+    line-height: 1.5rem;
+}
+
+.details-footer {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 768px) {
+    .details-image-container, .details-description {
+        width: 100%;
+    }
+
+    .details-description h4, .details-description p {
+        text-align: center;
+    }
+}
+
+/* Media Query for Phones */
+@media only screen and (max-width: 600px) {
+    .place-details-container, .entry-details-container {
+        width: 90vw;
+    }
+
+    .entry-rating-container {
+        width: 100%;
+    }
+}

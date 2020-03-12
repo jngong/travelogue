@@ -1,0 +1,166 @@
+/* *********************** */
+/* **** Global Styles **** */
+/* *********************** */
+
+:root {
+  --display-font-family: 'Spartan', sans-serif;
+  --main-font-family: 'Raleway', sans-serif;
+  --white: #FFFFFF;
+  --black: #000000;
+  --grey: #B1A8B9;
+  --main-color: #4477BB;
+  --switch-color: #D9A21B;
+  --background-color: #F6F9FF;
+  --background-color-alt: #E6F4F1;
+  --secondary-color: #B2DCFF;  
+}
+
+.App {
+  font-family: var(--main-font-family);
+  box-sizing: border-box;
+  max-width: 1536px;
+  margin: 0 auto;
+  background-color: var(--white);
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display-font-family);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black)
+}
+
+select, input, textarea {
+  outline: none;
+  padding: .2rem 1rem; 
+  margin: .5rem;
+  border-radius: .5px;
+  font-family: var(--main-font-family);
+  font-size: .8rem;
+  line-height: 1.5rem;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+input[type=submit], button {
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-radius: 3px;
+  border-color: var(--grey);
+}
+
+button {
+  padding: .3rem 1.2rem; 
+  margin: .5rem;
+  border-radius: .5px;
+  font-size: .9rem;
+  line-height: 1.5rem;
+  outline: none
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* *********************** */
+/* **** Header Styles **** */
+/* *********************** */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--background-color-alt);
+  margin-bottom: 2rem;
+  font-family: var(--display-font-family);
+}
+
+.logo {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-link {
+  text-align: right;
+  margin-left: 1.3rem;
+  color: var(--main-color);
+  font-size: 1.1rem
+}
+
+.fa-user-plus {
+  font-size: 1.1rem;
+}
+
+.fa-sign-in-alt, .fa-sign-out-alt, .fa-plus-square {
+  font-size: 1.3rem;
+}
+
+.fa-passport {
+  font-size: 1.2rem
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  background-color: var(--background-color-alt);
+  font-size: .8rem;
+  line-height: 1.5rem;
+  letter-spacing: .7px;
+  font-weight: 400;
+}
+
+.symbol {
+  font-size: .6rem;
+}
+
+footer .icon {
+  margin: .3rem;
+  font-size: .9rem;
+  color: var(--main-color)
+}
+
+
+/* Media Query for Phones */
+@media only screen and (max-width: 600px) {
+  .App {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1rem;  
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+}
