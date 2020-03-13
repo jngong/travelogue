@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get '/query/countries', to: 'query#countries'  
   end 
 
-  get '*path', to: "staticpages#fallback_index_html", constraints: ->(request) do
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 
