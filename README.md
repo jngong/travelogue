@@ -242,7 +242,7 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 
 ## Code Showcase
 
-> This is from my Create Entry component. I was proud of the conditional rendering logic for showing different parts of the page based on state and having the different pieces render stored in separate function expressionss.
+This is from my Create Entry component. I was proud of the conditional rendering logic for showing different parts of the page based on state and having the different pieces render stored in separate function expressionss.
 
 ```
   const selectPlace = () => {
@@ -307,18 +307,18 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 
 ## Code Issues & Resolutions
 
-> **ISSUE**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
-> **RESOLUTION**: Set the Authorization header to localstorage.getitem in the Axios.create method of the api helper.
+**ISSUE**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
+**RESOLUTION**: Set the Authorization header to localstorage.getitem in the Axios.create method of the api helper.
 
-> **ISSUE**: CreateUser function not setting state for currentUser and not saving JWT
-> **RESOLUTION**: Console logged the JSON response to determine what's being returned back from the back-end and tracked the methods back to the UsersController. Realized that I needed to add Auth to the POST method of Users in order to save the JWT when the user is created.
+**ISSUE**: CreateUser function not setting state for currentUser and not saving JWT                              
+**RESOLUTION**: Console logged the JSON response to determine what's being returned back from the back-end and tracked the methods back to the UsersController. Realized that I needed to add Auth to the POST method of Users in order to save the JWT when the user is created.
 
 
-> **ISSUE**: After deployment, Create User method was returning an error as follows:
+**ISSUE**: After deployment, Create User method was returning an error as follows:
 ```
 Completed 500 Internal Server Error in 537ms (ActiveRecord: 8.4ms | Allocations: 45907)
 api.1 |  NoMethodError (undefined method `user_url' for #<Api::UsersController:0x00007f932e657980>): 
 api.1 |  app/controllers/api/users_controller.rb:24:in `create'
 ```
-> **RESOLUTION**: Searched my project for user_url and could only see it referenced in test files. Seeing that the error was on a specific line in my users controller, I realized it was the `location: @user` in the render that was causing the error and removed it.
+**RESOLUTION**: Searched my project for user_url and could only see it referenced in test files. Seeing that the error was on a specific line in my users controller, I realized it was the `location: @user` in the render that was causing the error and removed it.
 ***
