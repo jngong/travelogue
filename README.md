@@ -100,7 +100,7 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
 | App    |   N   | _App will set the routes._               |
-| Layout    |   N   | _Layout will render Header, Footer and props.children._               |
+| Layout    |   Y   | _Layout will render Header, Footer and props.children._               |
 | Header    |   N   | _The Header will render the logo and Navigation._               |
 | Navigation |   N   | _The Navigation will provide Links to main pages._       |
 | PublicEntryList  |   Y   | _The PublicEntryList will render an index of recent EntryCards via Index route for entries, filtered by public only._      |
@@ -187,18 +187,18 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
 | Rails Models        |    H     |     2 hrs      |     1 hr     |
-| Seed Data           |    H     |     4 hrs      |     3.5 hrs     |
+| Seed Data           |    H     |     4 hrs      |     3 hrs     |
 | CRUD Routes & Controllers |    H     |     4 hrs      |     2 hrs     |
 | Back End User Auth  |    H     |     8 hrs      |     8 hrs     |
 | App with Routes     |    H     |     4 hrs      |     1 hr     |
 | Front-end Auth - sign up/log in forms |    H     |     8 hrs      |     6 hrs     |
 | Header, Footer, Nav   |    L     |     3 hrs      |     2 hrs    |
-| PublicEntries List, Card, Details  |    H     |     4 hrs      |     3 hrs     |
-| UserEntries List, Details  |    H     |     6 hrs      |     3 hrs     |
-| Entry Form - Create, Edit  |    H     |     6 hrs      |     TBD     |
-| CSS  |    M     |     8 hrs      |     TBD     |
-| Responsive Media Queries CSS  |    L     |     3 hrs      |     TBD     |
-| TOTAL               |          |     64 hrs      |     TBD     |
+| PublicEntries List, Card, Details  |    H     |     4 hrs      |     5 hrs     |
+| UserEntries List, Details  |    H     |     6 hrs      |     8 hrs     |
+| Entry Form - Create, Edit  |    H     |     6 hrs      |     8 hrs     |
+| CSS  |    M     |     8 hrs      |     10 hrs     |
+| Responsive Media Queries CSS  |    L     |     3 hrs      |     5 hrs     |
+| TOTAL               |          |     64 hrs      |     59 hrs     |
 
 <br>
 
@@ -235,21 +235,79 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 ## Project Change Log
 
 - 3/5:  Modified ERD - removed cities table and added a new table for places in order to aggregate user entries on a place to reduce the number of fields for user input and standardize places that entries can be associated with (reducing duplication). Will potentially test out use of available npm packages or ruby gems that will provide standardization of country and city attributes for each place.
+- 3/11: Due to time constraints, I decided to save the functionality for users to upload images as a post-MVP feature. I also ran into time issues with some additional logic I wanted to include - for example, filtering entries based on country, adding public entries to the places in the public view and creating a new place ahead of creating an entry.
+- 3/12: For deployment, I had to remove git from the top-level directory where my Rails app was nested and when this happened, I lost my commit history. I was at 100+ commits prior to losing this history.
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+> This is from my Create Entry component. I was proud of the conditional rendering logic for showing different parts of the page based on state and having the different pieces render stored in separate function expressionss.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+  const selectPlace = () => {
+      return (
+          <div className="filter-container">
+              <div>Select a place:</div>
+              <select className='select-list' name="selectedPlaceId" onChange={this.handlePlaceSelect}>
+                  <option>--choose one--</option>
+                  {placeOptions}
+              </select>
+              <button onClick={this.handlePlaceConfirm}>Confirm</button>
+          </div>
+      )
+  }
+
+  const showEntryForm = () => {
+      const { name, city, country, description } = this.state.selectedPlace
+      return (
+          <div className='entry-form-container'>
+              <div className='selected-place-details-container'>
+                  <div className='selected-place-details'>
+                      <h4>Selected Place</h4>
+                      <p>{name}</p>
+                      <h4>Location</h4>
+                      <p>{city}, {country}</p>
+                      <h4>Description</h4>
+                      <p>{description}</p>
+                      <button onClick={this.cancelPlaceSelect} className='link-button'>
+                          Select a New Place
+                  </button>
+                  </div>
+              </div>
+
+              <div className='create-entry-container'>
+                  <h2>Add Your Entry</h2>
+                  <EntryForm
+                      entryFormData={this.state.entryFormData}
+                      handleChange={this.handleEntryChange}
+                      handleSubmit={this.handleEntrySubmit}
+                  />
+              </div>
+          </div>
+      )
+  }
+
+  const showError = () => {
+      return (
+          <div style={{ textAlign: "center" }}>
+              ERROR: Please selecta place to continue.
+          </div>
+      )
+  }
+
+  return (
+      <div className='create-entry'>
+          <h1>Log a new entry</h1>
+          {this.state.entryFormData.place_id ? showEntryForm() : selectPlace()}
+          {this.state.placeSelectError ? showError() : null}
+      </div>
+  )
 ```
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
-> **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-> **RESOLUTION**: Missing comma after first object in sources {} object
+> **ERROR**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
+> **RESOLUTION**: Set the Authorization header to localstorage.getitem in the Axios.create method of the api helper.
 
+> **ERROR**: CreateUser function not setting state for currentUser and not saving JWT.
+> **RESOLUTION**: Console logged the JSON response to determine what's being returned back from the back-end and tracked the methods back to the UsersController. Realized that I needed to add Auth to the POST method of Users in order to save the JWT when the user is created.
 ***
