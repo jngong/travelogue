@@ -45,7 +45,6 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 |      React       | _Front-end Javascript Framework for UI_ |
 |   React Router   | _Create routes for UI navigation_ |
 |      Axios       | _Fetch data from our back-end API & any 3rd-party APIs_ |
-| React Calendar   | _Library for including a date picker in form_ |
 |   Font Awesome   | _Library for icons to include in nav bar_ |
 |     Postgres     | _RMDB system to manage our database actions_ |
 |  Ruby on Rails   | _Back-end framework for creating our models and controllers_ |
@@ -100,7 +99,7 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 |  Component   | State | Description                                                      |
 | :----------: | :---: | :--------------------------------------------------------------- |
 | App    |   N   | _App will set the routes._               |
-| Layout    |   Y   | _Layout will render Header, Footer and props.children._               |
+| Layout    |   Y   | _Layout will render Header, Footer and hold state for user auth._              |
 | Header    |   N   | _The Header will render the logo and Navigation._               |
 | Navigation |   N   | _The Navigation will provide Links to main pages._       |
 | PublicEntryList  |   Y   | _The PublicEntryList will render an index of recent EntryCards via Index route for entries, filtered by public only._      |
@@ -308,6 +307,7 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 > **ERROR**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
 > **RESOLUTION**: Set the Authorization header to localstorage.getitem in the Axios.create method of the api helper.
 
-> **ERROR**: CreateUser function not setting state for currentUser and not saving JWT.
+> **ERROR**: CreateUser function not setting state for currentUser and not saving JWT
 > **RESOLUTION**: Console logged the JSON response to determine what's being returned back from the back-end and tracked the methods back to the UsersController. Realized that I needed to add Auth to the POST method of Users in order to save the JWT when the user is created.
+
 ***
