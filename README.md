@@ -1,5 +1,7 @@
 # Travelogue Full Stack Application
 
+Deplpoyed application: https://travelogue-app.herokuapp.com/
+
   - [Overview](#Overview)
     - [Permissions](#Permissions)
   - [MVP](#MVP)
@@ -197,7 +199,8 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 | Entry Form - Create, Edit  |    H     |     6 hrs      |     8 hrs     |
 | CSS  |    M     |     8 hrs      |     10 hrs     |
 | Responsive Media Queries CSS  |    L     |     3 hrs      |     5 hrs     |
-| TOTAL               |          |     64 hrs      |     59 hrs     |
+| Deployment  |    M     |     1 hr      |     2 hrs     |
+| TOTAL               |          |     64 hrs      |     61 hrs     |
 
 <br>
 
@@ -304,10 +307,18 @@ _The **Travelogue** MVP will display places associated with  user entries have m
 
 ## Code Issues & Resolutions
 
-> **ERROR**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
+> **ISSUE**: Authorization - authorize_request not working for getEntries when sending request from the Client                              
 > **RESOLUTION**: Set the Authorization header to localstorage.getitem in the Axios.create method of the api helper.
 
-> **ERROR**: CreateUser function not setting state for currentUser and not saving JWT
+> **ISSUE**: CreateUser function not setting state for currentUser and not saving JWT
 > **RESOLUTION**: Console logged the JSON response to determine what's being returned back from the back-end and tracked the methods back to the UsersController. Realized that I needed to add Auth to the POST method of Users in order to save the JWT when the user is created.
 
+
+> **ISSUE**: After deployment, Create User method was returning an error as follows:
+```
+Completed 500 Internal Server Error in 537ms (ActiveRecord: 8.4ms | Allocations: 45907)
+api.1 |  NoMethodError (undefined method `user_url' for #<Api::UsersController:0x00007f932e657980>): 
+api.1 |  app/controllers/api/users_controller.rb:24:in `create'
+```
+> **RESOLUTION**: Searched my project for user_url and could only see it referenced in test files. Seeing that the error was on a specific line in my users controller, I realized it was the `location: @user` in the render that was causing the error and removed it.
 ***
