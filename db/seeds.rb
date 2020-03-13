@@ -38,9 +38,9 @@ porto_places = [
     ["Sandeman Cellars", 2, "https://cdn.pixabay.com/photo/2019/08/30/11/33/porto-4441039_1280.jpg"]
 ]
 galway_places = [
-    ["Aniar", 1, "https://aniarrestaurant.files.wordpress.com/2011/07/aniar-1-of-10.jpg"],
-    ["O'Connells", 2, "http://oconnellsbargalway.com/wp-content/plugins/widgetkit/cache/gallery/765/000%20O%20Connells%20back%20garden-8_preview-434939f924.jpeg"],
-    ["The Galmont", 3, "https://www.thegalmont.com/files/hotel/hotel-b/Galmont_August_2018_onwards/Exterior/Front_Entrance_3000px_1.jpg"], 
+    ["Aniar", 1, "https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-wall-1834784_1280.jpg"],
+    ["O'Connells", 2, "https://cdn.pixabay.com/photo/2017/05/26/12/39/ireland-2345992_1280.jpg"],
+    ["The Galmont", 3, "https://cdn.pixabay.com/photo/2016/10/13/09/06/travel-1737168_1280.jpg"], 
     ["Kylemore Abbey", 4, "https://cdn.pixabay.com/photo/2017/07/29/18/29/abbey-2552326_1280.jpg"], 
     ["Long Walk, Claddagh", 4, "https://cdn.pixabay.com/photo/2019/10/24/19/50/boats-4575124_1280.jpg"]
 ]
@@ -70,7 +70,6 @@ bali_places = [
     ["Tegallalang Rice Terrace", 4, "https://cdn.pixabay.com/photo/2016/07/13/10/56/rice-1514141_1280.jpg"],
     ["Goa Gajah", 4, "https://cdn.pixabay.com/photo/2017/02/21/16/45/japanese-lantern-2086582_1280.jpg"]
 ]
-
 
 toronto_places.each do |place|
     Place.create(
@@ -207,7 +206,7 @@ puts "#{User.count} users created"
 5.times do 
     Entry.create!(
         user_id: 1, 
-        place_id: Faker::Number.within(range: 1..35), 
+        place_id: Faker::Number.within(range: 1..15), 
         visit_date: Faker::Date.in_date_period(year: 2019), 
         rating: Faker::Number.within(range: 1..5), 
         comments: Faker::Lorem.paragraph(sentence_count: 5), 
@@ -219,7 +218,7 @@ end
 5.times do 
     Entry.create!(
         user_id: 2, 
-        place_id: Faker::Number.within(range: 1..30), 
+        place_id: Faker::Number.within(range: 1..20), 
         visit_date: Faker::Date.in_date_period(year: 2019), 
         rating: Faker::Number.within(range: 1..5), 
         comments: Faker::Lorem.paragraph(sentence_count: 5), 
@@ -231,7 +230,7 @@ end
 5.times do 
     Entry.create!(
         user_id: 3, 
-        place_id: Faker::Number.within(range: 1..30), 
+        place_id: Faker::Number.within(range: 16..30), 
         visit_date: Faker::Date.in_date_period(year: 2019), 
         rating: Faker::Number.within(range: 1..5), 
         comments: Faker::Lorem.paragraph(sentence_count: 5), 
@@ -243,7 +242,7 @@ end
 5.times do 
     Entry.create!(
         user_id: 4, 
-        place_id: Faker::Number.within(range: 20..35), 
+        place_id: Faker::Number.within(range: 16..30), 
         visit_date: Faker::Date.in_date_period(year: 2019), 
         rating: Faker::Number.within(range: 1..5), 
         comments: Faker::Lorem.paragraph(sentence_count: 5), 
@@ -255,7 +254,7 @@ end
 5.times do 
     Entry.create!(
         user_id: 5, 
-        place_id: Faker::Number.within(range: 20..35), 
+        place_id: Faker::Number.within(range: 20..40), 
         visit_date: Faker::Date.in_date_period(year: 2019), 
         rating: Faker::Number.within(range: 1..5), 
         comments: Faker::Lorem.paragraph(sentence_count: 5), 
