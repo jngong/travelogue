@@ -1,4 +1,4 @@
-class EntriesController < ApplicationController
+class Api::EntriesController < ApplicationController
   before_action :authorize_request
   before_action :set_user
   before_action :set_user_entry, only: [:show, :update, :destroy]

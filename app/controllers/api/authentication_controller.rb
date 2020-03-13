@@ -1,4 +1,4 @@
-class AuthenticationController < ApplicationController
+class Api::AuthenticationController < ApplicationController
     before_action :authorize_request, except: :login
 
     # This method creates a verification of the user credentials. Will be accessed via POST route /auth/login
